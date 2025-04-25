@@ -81,53 +81,70 @@ git branch -a
 git diff
 ```
 
+### Push Changes 
+Need to pull changes first because other devoplers might have made changes. origin is the name of the repo. master is the name of the branch
+```
+git pull 
+git push origin master 
+```
 
-### Additional Resources: 
+
+## Common Workflow 
+### Create Branch for Desired Feature 
+This commit is commiting changes to the local branch called divide-func. It has no effect on local master branch or remote master branch. 
+```
+git branch divide-func
+git checkout divide-func
+git add 
+git commit -m "new feature divide function"
+```
+
+### Push Branch to Remote Repo 
+-u tells git to associate local divide-func branch with the remote divide-func branch 
+
+origin is the repo's name 
+
+divide-func is the remote branch name 
+```
+git push -u origin divide-func
+```
+
+### Merge Branch 
+--merged tells what branch has been merged
+
+while in the master local branch, merge divide-fun into it 
+```
+git checkout master
+git pull origin master 
+git branch --merged 
+git merge divide-func 
+```
+
+### Push Changes to Remote Master Branch 
+```
+git push origin master
+```
+
+### Delete Branch 
+first one deletes local branch, then need to push that to remote too 
+```
+git branch -d divide-func 
+git branch -a 
+git push origin --delete divide-func
+```
+
+### How to resolve credential issues 
+```
+printf "protocol=https\nhost=github.com\n" | git credential fill
+
+git config --global credential.helper
+
+git config --list | grep credential
+```
+
+
+## Additional Resources: 
 1. Pro Git Book https://git-scm.com/book/en/v2
 2. Corey Schafter 
-
-
-
-Common git command - and how to resolve credential issues 
-
-`git pull`
-`git status`
-`git add . `
-`git commit -m "new feature"`
-`git push `
-
-`git branch -a `
-`git checkout `
-
-`printf "protocol=https\nhost=github.com\n" | git credential fill`
-
-`git config --global credential.helper`
-
-`git config --list | grep credential`
-
-create a new branch 
-`git branch new-branch` 
-
-display all branch 
-`git branch -a` 
-
-after create a new local branch and made changes - when to merge changes to main do 
-
-`git checkout main` 
-
-then 
-`git pull origin main`
-
-then 
-`git merge new-branch` 
-
-then 
-`git push origin main` 
-
-After the change has been applied delete that branch 
-`git branch -d new-branch` -- this deletes it locally 
-
-then 
-`git push origin --delete new-branch` -- this delelets it remotely 
 
 
