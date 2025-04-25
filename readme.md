@@ -1,3 +1,29 @@
+# Git - A Distributed Version Control System (VCS)
+
+Difference between central vs ditributed version control system: 
+
+
+Check Version - make sure it's installed correctly
+
+```
+git --version
+```
+
+Set Global Configuration Variables - add my name to checkin and commit 
+```
+git config --global user.name "Kai Cui"
+git config --global user.email "kaicuixxxx@gmail.com"
+
+git config --list
+```
+
+
+
+### Additional Resources: 
+1. Pro Git Book https://git-scm.com/book/en/v2
+
+
+
 Common git command - and how to resolve credential issues 
 
 `git pull`
